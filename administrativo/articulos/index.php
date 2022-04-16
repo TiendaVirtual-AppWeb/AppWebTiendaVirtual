@@ -1,4 +1,5 @@
 
+		
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,11 +43,8 @@
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
-<div class="container1" id="main1">
 
-		</div>
 	<!-- Header -->
-	
 	<header>
 		<!-- Header desktop -->
 		<div class="container-menu-desktop">
@@ -256,37 +254,6 @@
 		</div>
 	</header>
 
-	<div class="container" id="main">
-        <div class="main-login">
-            <form action="login.php" method="post">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="text-center">ACCESOS AL PANEL</h3>
-                    </div>
-                    <div class="panel-body">
-                        <p class="text-center">
-                            <img src="../../assets/imagenes/logo.png" alt="">
-                        </p>
-                        <div class="form-group">
-                            <label>Usuario</label>
-                            <input type="text" class="form-control" name="nombre_usuario" placeholder="Usuario" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" class="form-control" name="clave" placeholder="Password" required>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
-
-
-
-                    </div>
-                </div>
-            </form>
-        </div>
-
-    </div> <!-- /container -->
-
 	<!-- Cart -->
 	<div class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>
@@ -371,8 +338,6 @@
 			</div>
 		</div>
 	</div>
-
-
 
 	<!-- Slider -->
 	<section class="section-slide">
@@ -535,6 +500,52 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- form registro articulos -->
+	<div class="container" id="main">
+		<div class="row">
+          <div class="col-md-12">
+              <div class="pull-right">
+                <a href="registrar_form.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Nuevo</a>
+              </div>
+          </div>
+        </div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<fieldset>
+				<legend>Articulos</legend>
+					<table class="table table-bordered">
+					<thead>
+						<tr>
+						<th>#</th>
+						<th>Articulo</th>
+						<th>Categoria</th>
+						<th>Precio</th>
+						<th class="text-center">Imagen</th>
+						<th> </th>
+						</tr>
+					</thead>
+					<tbody> 
+						<tr>
+							<td>2</td>
+							<td>adfsfadf</td>
+							<td>ffdfdf</td>
+							<td>123</td>
+							<td class="text-center">imagen</td>
+							<td class="text-center">
+								<a href="" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></a>
+								<a href="editar_form.php" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit"></span></a>
+							</td>
+						</tr>
+					</tbody>
+
+					</table>
+				</fieldset>
+			</div>
+			</div>
+	</div>
+
 
 
 	<!-- Product -->
