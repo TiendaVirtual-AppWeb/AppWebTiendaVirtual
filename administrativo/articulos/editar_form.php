@@ -4,10 +4,10 @@
 
 	<title>TiendaVirtual_final</title>
 	<meta charset="UTF-8">
-    <meta name="drescription" content="Tienda Virtual proyecto final App-Web">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="David Vélez, David Charo">
+  <meta name="drescription" content="Tienda Virtual proyecto final App-Web">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="David Vélez, David Charo">
 
 <!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="../../assets/images/icons/favicon.png"/>
@@ -61,54 +61,43 @@
 					</div>
 				</div>
 			</div>
-
 			<div class="wrap-menu-desktop">
 				<nav class="limiter-menu-desktop container">
-
 					<!-- Logo desktop -->
 					<a href="#" class="logo">
 						<img src="../../assets/images/icons/logo-01.png" alt="Tienda Virtual">
 					</a>
-
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li class="active-menu">
 								<a href="index.html">Inicio</a>
-
 							</li>
-
 							<li>
 								<a href="product.html">Tienda</a>
 							</li>
-
 							<li>
 								<a href="nosotros.html">Nosotros</a>
 							</li>
-
 							<li>
 								<a href="contacto.html">Contacto</a>
 							</li>
 						</ul>
 					</div>
-
 					<!-- Icon header -->
         	<div class="wrap-icon-header flex-w flex-r-m">
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
 							<i><a href="index.php">Articulos</a></i>
 						</div>
-
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
 							<i><a href="../pedidos/index.php">Pedidos</a></i>
 						</div>
-
                         <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
 							<i><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                         <li><a href="#">Salir</a></li>
                         </ul></i>
-						</div>
-                        
+						</div>           
 					</div>
 				</nav>
 			</div>
