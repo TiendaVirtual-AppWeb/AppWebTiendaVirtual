@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -211,13 +213,13 @@
       <div class="row">
         <div class="col-md-12">
           <fieldset>
-            <legend>Nuevo artículo</legend>
+            <legend>Nuevo articulo</legend>
             <form method="POST" action="../controlador.php" enctype="multipart/form-data" >
               <div class="row">
                   <div class="col-md-6">
                       <div class="form-group">
-                          <label>Artículo</label>
-                          <input type="text" class="form-control" name="artículo" required>
+                          <label>Articulo</label>
+                          <input type="text" class="form-control" name="articulo" >
                       </div>
                   </div>
               </div>

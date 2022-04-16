@@ -206,7 +206,7 @@
                   <div class="col-md-6">
                       <div class="form-group">
                           <label>Artículo</label>
-                          <input type="text" class="form-control" name="artículo" required>
+                          <input type="text" class="form-control" name="articulo" required>
                       </div>
                   </div>
               </div>
