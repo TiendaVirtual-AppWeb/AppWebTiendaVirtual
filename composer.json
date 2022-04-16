@@ -1,16 +1,16 @@
 {
     "name": "kawschool/tienda-online",
-    "description": "creacion de una tienda online",
+    "description": "Aplicación web_Tienda Virtual",
     "type": "project",
     "license": "MIT",
     "authors": [
         {
-            "name": "hugo trigoso paredes",
-            "email": "htrigoso@kawschool.com"
+            "name": "David Charo",
+            "email": "cristian.charo@udea.edu.co"
         },
         {
-            "name": "elvis pinares galvan",
-            "email": "epinares@kawschool.com"
+            "name": "David Vélez",
+            "email": "davidf.velez@udea.edu.co"
         }
     ],
     "require": {
