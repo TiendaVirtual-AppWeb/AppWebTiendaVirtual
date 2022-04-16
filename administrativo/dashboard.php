@@ -81,7 +81,7 @@
 				<nav class="limiter-menu-desktop container">
 
 					<!-- Logo desktop -->
-					<a href="#" class="logo">
+					<a href="dashboard.php" class="logo">
 						<img src="../assets/images/icons/logo-01.png" alt="IMG-LOGO">
 					</a>
 
@@ -122,11 +122,11 @@
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i>Articulos</i>
+							<i><a href="articulos/index.php">Articulos</a></i>
 						</div>
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
-							<i>Pedidos</i>
+							<i><a href="pedidos/index.php">Pedidos</a></i>
 						</div>
 
                         <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
@@ -135,7 +135,7 @@
                         <li><a href="#">Salir</a></li>
                         </ul></i>
 						</div>
-                        
+
 					</div>
 				</nav>
 			</div>
@@ -147,7 +147,7 @@
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->
 			<div class="logo-mobile">
-				<a href="index.html"><img src="../assets/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+				<a href="dashboard.php"><img src="../assets/images/icons/logo-01.png" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
