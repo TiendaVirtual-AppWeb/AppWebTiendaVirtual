@@ -1,8 +1,7 @@
 <?php 
  
- 
-function agregarArticulo($resultado, $id, $cantidad = 1){ 
-    $_SESSION['carrito'][$id] = array( 
+function agregarArticulo($resultado, $id, $cantidad=1){ 
+    $_SESSION['car'][$id] = array( 
         'id' => $resultado['id'], 
         'articulo' => $resultado['articulo'], 
         'imagen' => $resultado['imagen'], 
@@ -15,17 +14,17 @@ function agregarArticulo($resultado, $id, $cantidad = 1){
 function actualizarArticulo($id,$cantidad = FALSE){ 
  
     if($cantidad) 
-        $_SESSION['carrito'][$id]['cantidad'] = $cantidad; 
+        $_SESSION['car'][$id]['cantidad'] = $cantidad; 
     else 
-        $_SESSION['carrito'][$id]['cantidad']+=1; 
+        $_SESSION['car'][$id]['cantidad']+=1; 
 } 
  
  
 function calcularTotal(){ 
  
     $total = 0; 
-    if(isset($_SESSION['carrito'])){ 
-        foreach($_SESSION['carrito'] as $indice => $value){ 
+    if(isset($_SESSION['car'])){ 
+        foreach($_SESSION['car'] as $indice => $value){ 
             $total += $value['precio'] * $value['cantidad']; 
         } 
     } 
@@ -35,8 +34,8 @@ function calcularTotal(){
  
 function cantidadArticulos(){ 
     $cantidad = 0; 
-    if(isset($_SESSION['carrito'])){ 
-        foreach($_SESSION['carrito'] as $indice => $value){ 
+    if(isset($_SESSION['car'])){ 
+        foreach($_SESSION['car'] as $indice => $value){ 
            $cantidad++; 
         } 
     } 
