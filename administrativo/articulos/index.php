@@ -258,7 +258,7 @@
 
 									</td>
 									<td class="text-center">
-										<a href="#"><button type="button" class="btn btn-danger btn-sm">Eliminar</button></a>
+										<a href="../controlador.php?id=<?php print $indice_articulo['id'] ?>"><button type="button" class="btn btn-danger btn-sm">Eliminar</button></a>
 										<a href="editar_form.php?id=<?php print $indice_articulo['id'] ?>"><button type="button" class="btn btn-success btn-sm">Editar</button></a>
 									</td>
 								</tr>
