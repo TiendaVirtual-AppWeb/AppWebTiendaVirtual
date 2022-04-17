@@ -206,7 +206,7 @@
 	</header>
 
     <br> <br> <br><hr>
- 	<!-- form registro articulos -->
+ 	<!-- Despliegue de articulos -->
 	<div class="container" id="main">
 		<div class="row">
           <div class="col-md-12">
@@ -232,23 +232,44 @@
 						</tr>
 					</thead>
 					<tbody> 
-						<tr>
-							<td>2</td>
-							<td>adfsfadf</td>
-							<td>ffdfdf</td>
-							<td>123</td>
-							<td class="text-center">imagen</td>
-							<td class="text-center">
-								<a href="#"><button type="button" class="btn btn-danger btn-sm">Eliminar</button></a>
-								<a href="editar_form.php"><button type="button" class="btn btn-success btn-sm">Editar</button></a>
-							</td>
-						</tr>
-					</tbody>
+						<?php
+							require '../../vendor/autoload.php';
+							$articulo = new Kawschool\Articulo;
+							$articulo_info = $articulo->mostrar();
+							$longitud = count($articulo_info);
+							 
+							if($longitud > 0){
+								$cont=0;
+								for($i =0; $i < $longitud; $i++){
+									$cont++;
+									$indice_articulo = $articulo_info[$i];
+						?>
+								<tr>
+									<td><?php print $cont ?></td>
+									<td><?php print $indice_articulo['articulo'] ?></td>
+									<td><?php print $indice_articulo['nombre'] ?></td>
+									<td><?php print $indice_articulo['precio']?> </td>
+									<td class="text-center">
+									<?php $imagen='../../assets/img_articulos/'.$indice_articulo['imagen']; 
+									if(file_exists($imagen)){?>
 
+									<img src="<?php print $imagen; ?>" alt="img_articulo" width="50">
+									<?php }else{ ?>	Sin imagen <?php } ?>
+
+									</td>
+									<td class="text-center">
+										<a href="#"><button type="button" class="btn btn-danger btn-sm">Eliminar</button></a>
+										<a href="editar_form.php?id=<?php print $indice_articulo['id'] ?>"><button type="button" class="btn btn-success btn-sm">Editar</button></a>
+									</td>
+								</tr>
+						<?php }}else{ ?>
+								<tr><td colspan="6">No hay articulos registrados</td></tr>
+						<?php } ?>
+					</tbody>
 					</table>
 				</fieldset>
 			</div>
-			</div>
+		</div>
 	</div>
 
      <br> <br> 

@@ -239,18 +239,14 @@
                             <option value="">--SELECCIONE--</option>
                             <?php
                              require '../../vendor/autoload.php';
-                              $categoria = new Kawschool\Articulo;
-                              $info_categoria = $categoria->mostrar();
-                              $cantidad = count($info_categoria);
-                                for($x =0; $x< $cantidad;$x++){
-                                  $item = $info_categoria[$x];
-                              ?>
-                                <option value="<?php print $item['id'] ?>"><?php print $item['nombre'] ?></option>
-                              <?php
-
-                                }
-                              ?>
-                            
+                              	$categoria = new Kawschool\Articulo;
+                              	$info_categoria = $categoria->mostrar();
+                              	$longitud = count($info_categoria);
+                            	for($i =0; $i< $longitud;$i++){
+                                  $indice_categoria = $info_categoria[$i];
+                            ?>
+                                <option value="<?php print $indice_categoria['id'] ?>"><?php print $indice_categoria['nombre'] ?></option>
+                            <?php  } ?>
                           </select>
                       </div>
                   </div>

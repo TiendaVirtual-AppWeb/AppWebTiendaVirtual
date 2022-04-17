@@ -40,8 +40,8 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
 
 if ($_POST['accion']==='Editar'){
 
-        if(empty($_POST['articulo']))
-        exit('Completar articulo');
+    if(empty($_POST['articulo']))
+    exit('Completar articulo');
     
     if(empty($_POST['descripcion']))
         exit('Completar descripcion');
@@ -72,9 +72,7 @@ if ($_POST['accion']==='Editar'){
     if($rpt)
         header('Location: articulos/index.php');
     else
-        print 'Error al actualizar un articulo';
-
-    }
+        print 'No se modificó el artículo';
 
 }
 
@@ -92,7 +90,7 @@ if($_SERVER['REQUEST_METHOD'] ==='GET'){
 
 function subirimagen() {
 
-    $carpeta = __DIR__.'../assets/img_articulos/';
+    $carpeta = __DIR__.'/../assets/img_articulos/';
 
     $archivo = $carpeta.$_FILES['imagen']['name'];
     echo $archivo;
