@@ -19,17 +19,17 @@ class Articulo{
  }
 
     public function registrar($_params){
-        $sql = "INSERT INTO `peliculas`(`titulo`, `descripcion`, `foto`, `precio`, `categoria_id`, `fecha`)
-        VALUES (:titulo,:descripcion,:foto,:precio,:categoria_id,:fecha)";
+        $sql = "INSERT INTO `articulos`(`articulo`, `descripcion`, `imagen`, `precio`, `categoriaid`, `fecha`)
+        VALUES (:articulo,:descripcion,:imagen,:precio,:categoriaid,:fecha)";
 
         $resultado = $this->cn->prepare($sql);
 
         $_array = array(
-            ":titulo" => $_params['titulo'],
+            ":articulo" => $_params['articulo'],
             ":descripcion" => $_params['descripcion'],
-            ":foto" => $_params['foto'],
+            ":imagen" => $_params['imagen'],
             ":precio" => $_params['precio'],
-            ":categoria_id" => $_params['categoria_id'],
+            ":categoriaid" => $_params['categoriaid'],
             ":fecha" => $_params['fecha'],
         );
 
@@ -40,16 +40,16 @@ class Articulo{
     }
 
     public function actualizar($_params){
-        $sql = "UPDATE `peliculas` SET `titulo`=:titulo,`descripcion`=:descripcion,`foto`=:foto,`precio`=:precio,`categoria_id`=:categoria_id,`fecha`=:fecha  WHERE `id`=:id";
+        $sql = "UPDATE `articulos` SET `articulo`=:articulo,`descripcion`=:descripcion,`imagen`=:imagen,`precio`=:precio,`categoriaid`=:categoriaid,`fecha`=:fecha  WHERE `id`=:id";
 
         $resultado = $this->cn->prepare($sql);
 
         $_array = array(
-            ":titulo" => $_params['titulo'],
+            ":articulo" => $_params['articulo'],
             ":descripcion" => $_params['descripcion'],
-            ":foto" => $_params['foto'],
+            ":imagen" => $_params['imagen'],
             ":precio" => $_params['precio'],
-            ":categoria_id" => $_params['categoria_id'],
+            ":categoriaid" => $_params['categoriaid'],
             ":fecha" => $_params['fecha'],
             ":id" =>  $_params['id']
         );
@@ -61,7 +61,7 @@ class Articulo{
     }
 
     public function eliminar($id){
-        $sql = "DELETE FROM `peliculas` WHERE `id`=:id ";
+        $sql = "DELETE FROM `articulos` WHERE `id`=:id ";
 
         $resultado = $this->cn->prepare($sql);
 
@@ -76,10 +76,10 @@ class Articulo{
     }
 
     public function mostrar(){
-        $sql = "SELECT peliculas.id, titulo, descripcion,foto,nombre,precio,fecha,estado FROM peliculas
+        $sql = "SELECT articulos.id, articulo, descripcion,imagen,nombre,precio,fecha,estado FROM articulos
 
         INNER JOIN categorias
-        ON peliculas.categoria_id = categorias.id ORDER BY peliculas.id DESC
+        ON articulos.categoriaid = categorias.id ORDER BY articulos.id DESC
         ";
 
         $resultado = $this->cn->prepare($sql);
@@ -92,7 +92,7 @@ class Articulo{
 
     public function mostrarPorId($id){
 
-        $sql = "SELECT * FROM `peliculas` WHERE `id`=:id ";
+        $sql = "SELECT * FROM `articulos` WHERE `id`=:id ";
 
         $resultado = $this->cn->prepare($sql);
         $_array = array(
