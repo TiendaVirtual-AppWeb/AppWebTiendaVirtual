@@ -256,7 +256,7 @@
 									<?php print $indice_articulo['precio'] ?>
 								</span>
 								<br>
-								<a href="shoping-cart.html" class=" btn-block flex-c-m stext-101 cl0 size-105 bg3 bor2 hov-btn3 p-lr-70 trans-04 m-r-8 m-b-10">
+								<a href="car.php?id=<?php print $indice_articulo['id'] ?>" class=" btn-block flex-c-m stext-101 cl0 size-105 bg3 bor2 hov-btn3 p-lr-70 trans-04 m-r-8 m-b-10">
 									Comprar
 								</a>
 							</div>
