@@ -50,7 +50,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../assets/fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="assets/fonts/linearicons-v1.0.0/icon-font.min.css">
 <!--===============================================================================================-->
@@ -78,99 +78,68 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 
 	<!-- Header -->
 	<header>
-		<!-- Header desktop -->
+
+        <!-- Header desktop -->
 		<div class="container-menu-desktop">
 			<!-- Topbar -->
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">
-						Bienvenido Usuario: David
-					</div>
+					
+                <div class="right-top-bar flex-r h-full">
 
-					<div class="right-top-bar flex-w h-full">
+                    <a href="" class="flex-c-m trans-04 p-lr-25">
+					 Carrito de compras
+                    </a>
+                    </div>
+                    <div class="right-top-bar flex-w h-full">
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							Mi cuenta
+						<a href="administrativo/dashboard.php" class="flex-c-m trans-04 p-lr-25">
+							<span>Mi cuenta</span>
 						</a>
 					</div>
+			
 				</div>
 			</div>
+
 
 			<div class="wrap-menu-desktop">
 				<nav class="limiter-menu-desktop container">
 
 					<!-- Logo desktop -->
-					<a href="#" class="logo">
-						<img src="assets/images/icons/logo-01.png" alt="Tienda Virtual">
+					<a href="index.php" class="logo">
+						<img src="assets/images/icons/logo.png" alt="Tienda Virtual">
 					</a>
 
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li class="active-menu">
-								<a href="index.html">Inicio</a>
-							
-							</li>
-
-							<li>
-								<a href="product.html">Tienda</a>
-							</li>
-
-							<li>
-								<a href="nosotros.html">Nosotros</a>
-							</li>
-
-							<li>
-								<a href="contacto.html">Contacto</a>
+								<a href="index.php">Inicio</a>
 							</li>
 						</ul>
 					</div>
-
 					<!-- Icon header -->
-					<div class="wrap-icon-header flex-w flex-r-m">
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i><a href="index.php">Articulos</a></i>
+					<div class="wrap-icon-header flex-w flex-r-m"> 
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="<?php print cantidadArticulos();?>">
+							<span><a href="../car.php"><i class="zmdi zmdi-shopping-cart"></i></a></span>
 						</div>
-
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
-							<i><a href="../pedidos/index.php">Pedidos</a></i>
+						
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
 						</div>
-
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
-							<i><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                        <li><a href="#">Salir</a></li>
-                        </ul></i>
-						</div>
-                        
 					</div>
 				</nav>
 			</div>
 		</div>
 
-
-
 		<!-- Header Mobile -->
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->
 			<div class="logo-mobile">
-				<a href="index.html"><img src="assets/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+				<a href="index.php"><img src="assets/images/icons/logo.png" alt="IMG-LOGO"></a>
 			</div>
+        
 
-			<!-- Icon header -->
-			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-					<i class="zmdi zmdi-search"></i>
-				</div>
 
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
-					<i class="zmdi zmdi-shopping-cart"></i>
-				</div>
-
-				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
-					<i class="zmdi zmdi-favorite-outline"></i>
-				</a>
-			</div>
 
 			<!-- Button show menu -->
 			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
@@ -183,57 +152,12 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 
 		<!-- Menu Mobile -->
 		<div class="menu-mobile">
-			<ul class="topbar-mobile">
-				<li>
-					<div class="left-top-bar">
-						Bienvenido: "aqui el nombre del usuario"
-					</div>
-				</li>
-
-				<li>
-					<div class="right-top-bar flex-w h-full">
-
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
-							Mi cuenta
-						</a>
-
-					</div>
-				</li>
-			</ul>
 
 			<ul class="main-menu-m">
 				<li>
-					<a href="index.html">Inicio</a>
-				</li>
-
-				<li>
-					<a href="product.html">Tienda</a>
-				</li>
-
-				<li>
-					<a href="nosotros.html">Nosotros</a>
-				</li>
-
-				<li>
-					<a href="contacto.html">Contacto</a>
+					<a href="index.php">Inicio</a>
 				</li>
 			</ul>
-		</div>
-
-		<!-- Modal Search -->
-		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
-			<div class="container-search-header">
-				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-					<img src="assets/images/icons/icon-close2.png" alt="CLOSE">
-				</button>
-
-				<form class="wrap-search-header flex-w p-l-15">
-					<button class="flex-c-m trans-04">
-						<i class="zmdi zmdi-search"></i>
-					</button>
-					<input class="plh3" type="text" name="search" placeholder="Search...">
-				</form>
-			</div>
 		</div>
 	</header>
 
@@ -304,7 +228,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
                         }else{
                     ?>
                         <tr>
-                            <td colspan="7">NO HAY PRODUCTOS EN EL car</td>
+                            <td colspan="7">El carrito esta vacío</td>
 
                         </tr>
                     <?php
@@ -346,37 +270,38 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 			<div class="row">
 				<div class="col-sm-6 col-lg-6 p-b-10">
 					<h4 class="stext-301 cl0 p-b-15">
-						Categorias
+						De interes
 					</h4>
 					<ul>
 						<li class="p-b-7">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Colección
+								
 							</a>
 						</li>
 						<li class="p-b-7">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Decoración
+							<a href="index.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Artículos
 							</a>
 						</li>
 						<li class="p-b-7">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Juguetes
+							<a href="nosotros.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Nosotros
 							</a>
 						</li>
-						<li class="p-b-2">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Relojes
-							</a>
-						</li>
+
 					</ul>
 				</div>
-				<div class="col-sm-6 col-lg-6 p-b-10">
-					<h4 class="stext-301 cl0 p-b-15">
+				<div class="col-sm-6 col-lg-6 p-b-10 ">
+					<h4 class="stext-301 cl0 p-b-15" >
 						Contacto
 					</h4>
-					<p class="stext-107 cl7 size-201">
-						Facultad de ingenieria - Universidad de Antioquia - Ingeniería Electrónica
+					<p class="stext-107 cl7 size-201" >
+						Universidad de Antioquia 
+                        <br>
+                        Ingeniería Electrónica
+                        <br>
+                        David Vélez, davidf.velez@udea.edu.co
+                        David Charo, cristian.charo@udea.edu.co
 					</p>
 					<div class="p-t-27">
 						<a href="#" target="_blank" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
@@ -397,7 +322,6 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 			</div>
 		</div>
 	</footer>
-
 
 	<!-- Back to top -->
 	<div class="btn-back-to-top" id="myBtn">

@@ -53,12 +53,12 @@ require 'helpers.php';
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						Bienvenido Usuario: David
+						Bienvenido
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="administrativo/dashboard.php" class="flex-c-m trans-04 p-lr-25">
 							Mi cuenta
 						</a>
 					</div>
@@ -70,49 +70,26 @@ require 'helpers.php';
 
 					<!-- Logo desktop -->
 					<a href="#" class="logo">
-						<img src="assets/images/icons/logo-01.png" alt="Tienda Virtual">
+						<img src="assets/images/icons/logo.png" alt="Tienda Virtual">
 					</a>
 
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li class="active-menu">
-								<a href="index.html">Inicio</a>
-							
-							</li>
-
-							<li>
-								<a href="product.html">Tienda</a>
-							</li>
-
 							<li>
 								<a href="nosotros.html">Nosotros</a>
-							</li>
-
-							<li>
-								<a href="contacto.html">Contacto</a>
 							</li>
 						</ul>
 					</div>
 
 					<!-- Icon header -->
-					<div class="wrap-icon-header flex-w flex-r-m">
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i><a href="index.php">Articulos</a></i>
-						</div>
-
+					<div class="wrap-icon-header flex-w flex-r-m"> 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="<?php print cantidadArticulos();?>">
-							<i class="zmdi zmdi-shopping-cart"></i>
+							<span><a href="car.php"><i class="zmdi zmdi-shopping-cart"></i></a></span>
 						</div>
-					</div>
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11  js-show-cart">
-							
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="iconify" data-icon="bxs:user"></span><span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Salir</a></li>
-							</ul>
 						
-                        
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+						</div>
 					</div>
 				</nav>
 			</div>
@@ -124,22 +101,16 @@ require 'helpers.php';
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->
 			<div class="logo-mobile">
-				<a href="index.html"><img src="assets/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+				<a href="index.php"><img src="assets/images/icons/logo.png" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
 			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-					<i class="zmdi zmdi-search"></i>
+
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="<?php print cantidadArticulos();?>">
+					<a href="car.php"><i class="zmdi zmdi-shopping-cart"></i></a>
 				</div>
 
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
-					<i class="zmdi zmdi-shopping-cart"></i>
-				</div>
-
-				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
-					<i class="zmdi zmdi-favorite-outline"></i>
-				</a>
 			</div>
 
 			<!-- Button show menu -->
@@ -156,14 +127,14 @@ require 'helpers.php';
 			<ul class="topbar-mobile">
 				<li>
 					<div class="left-top-bar">
-						Bienvenido: "aqui el nombre del usuario"
+						Bienvenido
 					</div>
 				</li>
 
 				<li>
 					<div class="right-top-bar flex-w h-full">
 
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
+						<a href="administrativo/dashboard.php" class="flex-c-m p-lr-10 trans-04">
 							Mi cuenta
 						</a>
 
@@ -173,39 +144,10 @@ require 'helpers.php';
 
 			<ul class="main-menu-m">
 				<li>
-					<a href="index.html">Inicio</a>
-				</li>
-
-				<li>
-					<a href="product.html">Tienda</a>
-				</li>
-
-				<li>
 					<a href="nosotros.html">Nosotros</a>
-				</li>
-
-				<li>
-					<a href="contacto.html">Contacto</a>
 				</li>
 			</ul>
 		</div>
-
-		<!-- Modal Search -->
-		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
-			<div class="container-search-header">
-				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-					<img src="assets/images/icons/icon-close2.png" alt="CLOSE">
-				</button>
-
-				<form class="wrap-search-header flex-w p-l-15">
-					<button class="flex-c-m trans-04">
-						<i class="zmdi zmdi-search"></i>
-					</button>
-					<input class="plh3" type="text" name="search" placeholder="Search...">
-				</form>
-			</div>
-		</div>
-	</header>
 
 	<!-- llamado clase articulo para realizar despliegue -->
 	<!-- Articulos nuevos -->
@@ -242,11 +184,7 @@ require 'helpers.php';
 										<img src="<?php print $imagen?>" alt="IMG-PRODUCT" style="width:246px;height:305px"  >
 								
 							<?php }else{ ?>	Sin imagen <?php } ?>		
-							<!-- <img src="assets/images/product-16.jpg" alt="IMG-PRODUCT"> -->
-
-							<!-- <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View
-							</a> -->
+			
 						</div>
 
 						<div class="block2-txt flex-w flex-t p-t-14">
@@ -271,13 +209,6 @@ require 'helpers.php';
 							<h3>No hay productos para mostrar</h3>	
 					<?php } ?>
 			</div>
-
-			<!-- Load more -->
-			<div class="flex-c-m flex-w w-full p-t-45">
-				<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-					Load More
-				</a>
-			</div>
 		</div>
 	</section>
 
@@ -288,37 +219,38 @@ require 'helpers.php';
 			<div class="row">
 				<div class="col-sm-6 col-lg-6 p-b-10">
 					<h4 class="stext-301 cl0 p-b-15">
-						Categorias
+						De interes
 					</h4>
 					<ul>
 						<li class="p-b-7">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Colección
+								
 							</a>
 						</li>
 						<li class="p-b-7">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Decoración
+							<a href="index.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Artículos
 							</a>
 						</li>
 						<li class="p-b-7">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Juguetes
+							<a href="nosotros.php" class="stext-107 cl7 hov-cl1 trans-04">
+								Nosotros
 							</a>
 						</li>
-						<li class="p-b-2">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Relojes
-							</a>
-						</li>
+
 					</ul>
 				</div>
-				<div class="col-sm-6 col-lg-6 p-b-10">
-					<h4 class="stext-301 cl0 p-b-15">
+				<div class="col-sm-6 col-lg-6 p-b-10 ">
+					<h4 class="stext-301 cl0 p-b-15" >
 						Contacto
 					</h4>
-					<p class="stext-107 cl7 size-201">
-						Facultad de ingenieria - Universidad de Antioquia - Ingeniería Electrónica
+					<p class="stext-107 cl7 size-201" >
+						Universidad de Antioquia 
+                        <br>
+                        Ingeniería Electrónica
+                        <br>
+                        David Vélez, davidf.velez@udea.edu.co
+                        David Charo, cristian.charo@udea.edu.co
 					</p>
 					<div class="p-t-27">
 						<a href="#" target="_blank" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
