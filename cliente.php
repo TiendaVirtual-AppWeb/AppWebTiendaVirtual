@@ -1,37 +1,6 @@
-<?php
-//se usan las sesiones de php
-session_start();
+<?php session_start();
 require 'helpers.php';
-
-if(isset($_GET['id']) && is_numeric($_GET['id'])){
-    $id = $_GET['id'];
-    require 'vendor/autoload.php';
-    $pelicula = new Kawschool\Articulo;
-    $resultado = $pelicula->mostrarPorId($id);
-    
-    if(!$resultado)
-       header('Location: index.php');
-
-       
-
-    if(isset($_SESSION['car'])){ //se pregunta si ya existe el carro
-        //se pregunta si ya existe el articulo en el carro
-        if(array_key_exists($id,$_SESSION['car'])){
-            actualizarArticulo($id);
-        }else{
-            // si no existe se agrega al carrito
-            agregarArticulo($resultado, $id);
-        }
-
-    }else{
-        //  se crea carrito
-        agregarArticulo($resultado, $id);
-
-    }
-}  
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +19,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../assets/fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="assets/fonts/linearicons-v1.0.0/icon-font.min.css">
 <!--===============================================================================================-->
@@ -132,16 +101,17 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 							<i><a href="index.php">Articulos</a></i>
 						</div>
 
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
-							<i><a href="../pedidos/index.php">Pedidos</a></i>
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="<?php print cantidadArticulos();?>">
+							<i class="zmdi zmdi-shopping-cart"></i>
 						</div>
-
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
-							<i><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                        <li><a href="#">Salir</a></li>
-                        </ul></i>
-						</div>
+					</div>
+                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11  js-show-cart">
+							
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="iconify" data-icon="bxs:user"></span><span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Salir</a></li>
+							</ul>
+						
                         
 					</div>
 				</nav>
@@ -237,109 +207,42 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 		</div>
 	</header>
 
-	<!-- llamado clase articulo para realizar despliegue -->
-	<!-- Articulos nuevos -->
-	<br><br><hr><br><br><br><br>
-
-    <!-- Shoping Cart -->
-    <div class="container" id="main">
-            <table class="table table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Artículo</th>
-                      <th>Imagen</th>
-                      <th>Precio</th>
-                      <th>Cantidad</th>
-                      <th>Total</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                      <?php
-                        if(isset($_SESSION['car']) && !empty($_SESSION['car'])){
-                            $c=0;
-                            foreach($_SESSION['car'] as $indice => $value){
-                                $c++;
-                                $total = $value['precio'] * $value['cantidad'];
-                      ?>
-                        <tr>
-                            <form action="update_car.php" method="post">
-                                <td><?php print $c ?></td>
-                                <td><?php print $value['articulo']  ?></td>
-                                <td>
-                                    <?php
-                                        $imagen = 'assets/img_articulos/'.$value['imagen'];
-                                        if(file_exists($imagen)){
-                                        ?>
-                                        <img src="<?php print $imagen; ?>" width="35">
-                                    <?php }else{?>
-                                        <img src="assets/imagenes/not-found.jpg" width="35">
-                                    <?php }?>
-                                </td>
-                                <td><?php print $value['precio']  ?> </td>
-                                <td>
-                                <input type="hidden" name="id"  value="<?php print $value['id'] ?>">
-                                    <input type="text" name="cantidad" class="form-control u-size-100" value="<?php print $value['cantidad'] ?>">
-                                </td>
-                                <td>
-                                    <?php print $total  ?> 
-                                </td>
-                                <td>
-                                    <button type="submit" class="btn btn-success btn-xs">
-                                        <span class="glyphicon glyphicon-refresh"></span> 
-                                    </button>
-
-                                    <a href="delete_car.php?id=<?php print $value['id']  ?>" class="btn btn-danger btn-xs">
-                                        <span class="glyphicon glyphicon-trash"></span> 
-                                    </a>
-
-
-                                </td>
-                            </form>
-                        </tr>
-
-                    <?php
-                        }
-                        }else{
-                    ?>
-                        <tr>
-                            <td colspan="7">NO HAY PRODUCTOS EN EL car</td>
-
-                        </tr>
-                    <?php
-                        }
-                    ?>
-                </tbody>
-                <tfoot>
-                        <tr>
-                            <td colspan="5" class="text-right">Total</td>
-                            <td><?php print calcularTotal(); ?> </td>
-                            <td></td>
-                        </tr>
-
-                </tfoot>
-            </table>
-            <hr>
-            <?php
-                if(isset($_SESSION['car']) && !empty($_SESSION['car'])){
-            ?>  
+<br><br><br><br><hr>
+<div class="container" id="main">
+        <div class="main-form">
             <div class="row">
-                    <div class="pull-left">
-                        <a href="index.php" class="btn btn-info">Seguir Comprando</a>
-                    </div>
-                    <div class="pull-right">
-                        <a href="cliente.php" class="btn btn-success">Hacer pedido</a>
-                    </div>
+                <div class="col-md-12">
+                    <fieldset>
+                        <legend>Completar Datos</legend>
+                            <form action="registro.php" method="post">
+                                <div class="form-group">
+                                    <label>Nombre</label>
+                                    <input type="text" class="form-control" name="nombre" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Apellidos</label>
+                                    <input type="text" class="form-control" name="apellidos" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Correo</label>
+                                    <input type="email" class="form-control" name="correo" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Teléfono</label>
+                                    <input type="text" class="form-control" name="telefono" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Comentario</label>
+                                    <textarea name="comentario" class="form-control"  rows="4"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+                            </form>
+                    </fieldset>
+                </div>
             </div>
-
-            <?php
-                }
-            ?>
-
+        </div>
     </div> <!-- /container -->
-	
-    <br><br><br>
+    <br><br>
 	<!-- Footer -->
 	<footer class="bg3 p-t-15 p-b-10">
 		<div class="container">
@@ -452,6 +355,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 	</script>
 <!--===============================================================================================-->
 	<script src="vendor/isotope/isotope.pkgd.min.js"></script>
+	<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
 <!--===============================================================================================-->
 	<script src="vendor/sweetalert/sweetalert.min.js"></script>
 	<script>

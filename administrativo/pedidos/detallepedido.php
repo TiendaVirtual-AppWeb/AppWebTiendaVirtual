@@ -1,37 +1,3 @@
-<?php
-//se usan las sesiones de php
-session_start();
-require 'helpers.php';
-
-if(isset($_GET['id']) && is_numeric($_GET['id'])){
-    $id = $_GET['id'];
-    require 'vendor/autoload.php';
-    $pelicula = new Kawschool\Articulo;
-    $resultado = $pelicula->mostrarPorId($id);
-    
-    if(!$resultado)
-       header('Location: index.php');
-
-       
-
-    if(isset($_SESSION['car'])){ //se pregunta si ya existe el carro
-        //se pregunta si ya existe el articulo en el carro
-        if(array_key_exists($id,$_SESSION['car'])){
-            actualizarArticulo($id);
-        }else{
-            // si no existe se agrega al carrito
-            agregarArticulo($resultado, $id);
-        }
-
-    }else{
-        //  se crea carrito
-        agregarArticulo($resultado, $id);
-
-    }
-}  
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,37 +10,37 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
     <meta name="author" content="David Vélez, David Charo">
 
 <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="assets/images/icons/favicon.png"/>
+	<link rel="icon" type="image/png" href="../../assets/images/icons/favicon.png"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../assets/fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../assets/fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/fonts/linearicons-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/fonts/linearicons-v1.0.0/icon-font.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="../../vendor/animate/animate.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="../../vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="../../vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="../../vendor/select2/select2.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="../../vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="../../vendor/slick/slick.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/MagnificPopup/magnific-popup.css">
+	<link rel="stylesheet" type="text/css" href="../../vendor/MagnificPopup/magnific-popup.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="../../vendor/perfect-scrollbar/perfect-scrollbar.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/css/util.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/css/main.css">
 <!--===============================================================================================-->
 </head>
-<body class="animsition">
+<body>
 
 	<!-- Header -->
 	<header>
@@ -101,7 +67,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 
 					<!-- Logo desktop -->
 					<a href="#" class="logo">
-						<img src="assets/images/icons/logo-01.png" alt="Tienda Virtual">
+						<img src="../../assets/images/icons/logo-01.png" alt="Tienda Virtual">
 					</a>
 
 					<!-- Menu desktop -->
@@ -109,7 +75,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 						<ul class="main-menu">
 							<li class="active-menu">
 								<a href="index.html">Inicio</a>
-							
+
 							</li>
 
 							<li>
@@ -127,7 +93,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 					</div>
 
 					<!-- Icon header -->
-					<div class="wrap-icon-header flex-w flex-r-m">
+                    <div class="wrap-icon-header flex-w flex-r-m">
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
 							<i><a href="index.php">Articulos</a></i>
 						</div>
@@ -154,7 +120,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->
 			<div class="logo-mobile">
-				<a href="index.html"><img src="assets/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+				<a href="index.html"><img src="../../assets/images/icons/logo-01.png" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
@@ -224,7 +190,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 			<div class="container-search-header">
 				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-					<img src="assets/images/icons/icon-close2.png" alt="CLOSE">
+					<img src="../../assets/images/icons/icon-close2.png" alt="CLOSE">
 				</button>
 
 				<form class="wrap-search-header flex-w p-l-15">
@@ -235,15 +201,48 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 				</form>
 			</div>
 		</div>
+
+
 	</header>
 
-	<!-- llamado clase articulo para realizar despliegue -->
-	<!-- Articulos nuevos -->
-	<br><br><hr><br><br><br><br>
+    <br> <br> <br><hr>
+<div class="container" id="main">
+    <div class="row">
+          <div class="col-md-12">
+            <fieldset>
+                <?php
+                    require '../../vendor/autoload.php';
+                    $id = $_GET['id'];
+                    $pedido = new Kawschool\Pedido;
 
-    <!-- Shoping Cart -->
-    <div class="container" id="main">
-            <table class="table table-bordered table-hover">
+                    $info_pedido = $pedido->mostrarPorId($id);
+
+                    $info_detalle_pedido = $pedido->mostrarDetallePorIdPedido($id);
+
+                ?>
+
+                <legend>Información de la Compra</legend>
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input value="<?php print $info_pedido['nombre'] ?>" type="text" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Apellidos</label>
+                    <input value="<?php print $info_pedido['apellidos'] ?>" type="text" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Correo</label>
+                    <input value="<?php print $info_pedido['correo'] ?>" type="text" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Fecha</label>
+                    <input value="<?php print $info_pedido['fecha'] ?>" type="text" class="form-control" readonly>
+                </div>
+            
+                <hr>
+                    Productos Comprados
+                <hr>
+                <table class="table table-bordered">
                   <thead>
                     <tr>
                       <th>#</th>
@@ -251,95 +250,79 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
                       <th>Imagen</th>
                       <th>Precio</th>
                       <th>Cantidad</th>
-                      <th>Total</th>
-                      <th></th>
+                      <th>
+                          Total
+                      </th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody> 
+                    <?php
+                   
+                    
+                      $cantidad = count($info_detalle_pedido);
+                      if($cantidad > 0){
+                        $c=0;
+                      for($x =0; $x < $cantidad; $x++){
+                        $c++;
+                        $item = $info_detalle_pedido[$x];
+                        $total = $item['precio'] * $item['cantidad'];
+                    ?>
+
+
+                    <tr>
+                      <td><?php print $c?></td>
+                      <td><?php print $item['articulo']?></td>
+                      <td>
                       <?php
-                        if(isset($_SESSION['car']) && !empty($_SESSION['car'])){
-                            $c=0;
-                            foreach($_SESSION['car'] as $indice => $value){
-                                $c++;
-                                $total = $value['precio'] * $value['cantidad'];
-                      ?>
-                        <tr>
-                            <form action="update_car.php" method="post">
-                                <td><?php print $c ?></td>
-                                <td><?php print $value['articulo']  ?></td>
-                                <td>
-                                    <?php
-                                        $imagen = 'assets/img_articulos/'.$value['imagen'];
-                                        if(file_exists($imagen)){
-                                        ?>
-                                        <img src="<?php print $imagen; ?>" width="35">
-                                    <?php }else{?>
-                                        <img src="assets/imagenes/not-found.jpg" width="35">
-                                    <?php }?>
-                                </td>
-                                <td><?php print $value['precio']  ?> </td>
-                                <td>
-                                <input type="hidden" name="id"  value="<?php print $value['id'] ?>">
-                                    <input type="text" name="cantidad" class="form-control u-size-100" value="<?php print $value['cantidad'] ?>">
-                                </td>
-                                <td>
-                                    <?php print $total  ?> 
-                                </td>
-                                <td>
-                                    <button type="submit" class="btn btn-success btn-xs">
-                                        <span class="glyphicon glyphicon-refresh"></span> 
-                                    </button>
-
-                                    <a href="delete_car.php?id=<?php print $value['id']  ?>" class="btn btn-danger btn-xs">
-                                        <span class="glyphicon glyphicon-trash"></span> 
-                                    </a>
-
-
-                                </td>
-                            </form>
-                        </tr>
+                          $imagen = '../../assets/img_articulos/'.$item['imagen'];
+                          if(file_exists($imagen)){
+                        ?>
+                          <img src="<?php print $imagen; ?>" width="35">
+                      <?php }else{?>
+                          SIN imagen
+                      <?php }?>
+                      </td>
+                      <td><?php print $item['precio']?></td>
+                      <td><?php print $item['cantidad']?></td>
+                    <td>
+                    <?php print $total?>
+                    </td>
+                    </tr>
 
                     <?php
-                        }
-                        }else{
-                    ?>
-                        <tr>
-                            <td colspan="7">NO HAY PRODUCTOS EN EL car</td>
+                      }
+                    }else{
 
-                        </tr>
-                    <?php
-                        }
                     ?>
-                </tbody>
-                <tfoot>
-                        <tr>
-                            <td colspan="5" class="text-right">Total</td>
-                            <td><?php print calcularTotal(); ?> </td>
-                            <td></td>
-                        </tr>
+                    <tr>
+                      <td colspan="6">NO HAY REGISTROS</td>
+                    </tr>
 
-                </tfoot>
-            </table>
-            <hr>
-            <?php
-                if(isset($_SESSION['car']) && !empty($_SESSION['car'])){
-            ?>  
-            <div class="row">
-                    <div class="pull-left">
-                        <a href="index.php" class="btn btn-info">Seguir Comprando</a>
+                    <?php }?>
+        
+                  </tbody>
+
+                </table>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Total Compra</label>
+                        <input value="<?php print $info_pedido['total'] ?>" type="text" class="form-control" readonly>
                     </div>
-                    <div class="pull-right">
-                        <a href="cliente.php" class="btn btn-success">Hacer pedido</a>
-                    </div>
+                </div>
+                
+            </fieldset>
+            <div class="pull-left">
+                <a href="index.php" class="btn btn-default hidden-print">Cancelar</a>
             </div>
 
-            <?php
-                }
-            ?>
-
+            <div class="pull-right">
+                <a href="javascript:;" id="btnImprimir" class="btn btn-danger hidden-print">Imprimir</a>
+            </div>   
+          </div>
+        </div>
     </div> <!-- /container -->
-	
-    <br><br><br>
+
+     <br> <br> 
 	<!-- Footer -->
 	<footer class="bg3 p-t-15 p-b-10">
 		<div class="container">
@@ -398,7 +381,6 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 		</div>
 	</footer>
 
-
 	<!-- Back to top -->
 	<div class="btn-back-to-top" id="myBtn">
 		<span class="symbol-btn-back-to-top">
@@ -409,14 +391,15 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 
 
 <!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="../../vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<script src="../../vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../../vendor/bootstrap/js/popper.js"></script>
+	<script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+
 <!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
+	<script src="../../vendor/select2/select2.min.js"></script>
 	<script>
 		$(".js-select2").each(function(){
 			$(this).select2({
@@ -425,19 +408,22 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 			});
 		})
 	</script>
+
+
 <!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="../../vendor/daterangepicker/moment.min.js"></script>
+	<script src="../../vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/slick/slick.min.js"></script>
-	<script src="assets/js/slick-custom.js"></script>
+	<script src="../../vendor/slick/slick.min.js"></script>
+	<script src="../../assets/js/slick-custom.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/parallax100/parallax100.js"></script>
+	<script src="../../vendor/parallax100/parallax100.js"></script>
 	<script>
         $('.parallax100').parallax100();
 	</script>
+	<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+	<script src="../../vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
 	<script>
 		$('.gallery-lb').each(function() { // the containers for all your galleries
 			$(this).magnificPopup({
@@ -451,9 +437,9 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 		});
 	</script>
 <!--===============================================================================================-->
-	<script src="vendor/isotope/isotope.pkgd.min.js"></script>
+	<script src="../../vendor/isotope/isotope.pkgd.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/sweetalert/sweetalert.min.js"></script>
+	<script src="../../vendor/sweetalert/sweetalert.min.js"></script>
 	<script>
 		$('.js-addwish-b2').on('click', function(e){
 			e.preventDefault();
@@ -491,7 +477,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 
 	</script>
 <!--===============================================================================================-->
-	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script src="../../vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 	<script>
 		$('.js-pscroll').each(function(){
 			$(this).css('position','relative');
@@ -508,7 +494,13 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 		});
 	</script>
 <!--===============================================================================================-->
-	<script src="assets/js/main.js"></script>
-
+	<script src="../../assets/js/main.js"></script>
+    <script>
+        $('#btnImprimir').on('click',function(){
+            window.print();
+            return false;
+        })                 
+    </script>
 </body>
 </html>
+	
