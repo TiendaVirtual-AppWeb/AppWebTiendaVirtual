@@ -121,7 +121,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m"> 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="<?php print cantidadArticulos();?>">
-							<span><a href="../car.php"><i class="zmdi zmdi-shopping-cart"></i></a></span>
+							<span><a href=""><i class="zmdi zmdi-shopping-cart"></i></a></span>
 						</div>
 						
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
@@ -211,11 +211,11 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
                                 </td>
                                 <td>
                                     <button type="submit" class="btn btn-success btn-xs">
-                                        <span class="glyphicon glyphicon-refresh"></span> 
+									<span class="iconify" data-icon="charm:refresh"></span>
                                     </button>
 
                                     <a href="delete_car.php?id=<?php print $value['id']  ?>" class="btn btn-danger btn-xs">
-                                        <span class="glyphicon glyphicon-trash"></span> 
+									<span class="iconify" data-icon="bi:trash"></span>
                                     </a>
 
 
@@ -332,7 +332,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 
 
 
-<!--===============================================================================================-->
+<!--===============================================================================================--><script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
 	<script src="vendor/animsition/js/animsition.min.js"></script>

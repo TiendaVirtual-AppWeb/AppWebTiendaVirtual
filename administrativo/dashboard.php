@@ -96,22 +96,36 @@ header('Location: index.php');
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="<?php print cantidadArticulos();?>">
 							<span><a href="../car.php"><i class="zmdi zmdi-shopping-cart"></i></a></span>
 						</div>
-						<div></div>
+						
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+						</div>
+
+
+						<?php if($_SESSION['usuario_info']['nombre_usuario']==='admin'): ?>
+
+						<a href="articulos/registrar_form.php" class="btn-sm btn btn-warning" role="button">Nuevo artículo</a>
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+						</div>
+						<a href="articulos/index.php" class="btn-sm btn btn-dark" role="button">Artículos</a>				
 
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
+						
+						<a href="pedidos/index.php" class="btn-sm btn btn-dark" role="button">Pedidos</a>				
 
 						</div>
 
+						<?php else: ?>
+
+						<?php endif ?>
+						 
 						<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn-sm btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<?php print $_SESSION['usuario_info']['nombre_usuario']?>
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 								<a class="dropdown-item" href="cerrarsesion.php">Salir</a>
 							</div>
 						</div>
-						
-
 					</div>
 				</nav>
 			</div>

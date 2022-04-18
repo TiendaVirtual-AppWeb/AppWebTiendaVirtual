@@ -57,7 +57,7 @@ require 'helpers.php';
                 <div class="right-top-bar flex-w h-full">
 
                     <a href="" class="flex-c-m trans-04 p-lr-25">
-                        Datos de contacto
+                        Nosotros
                     </a>
                     </div>
                     <div class="right-top-bar flex-w h-full">
@@ -123,62 +123,75 @@ require 'helpers.php';
 				</li>
 			</ul>
 		</div>
+	</header>
 
-		<!-- Modal Search -->
-		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
-			<div class="container-search-header">
-				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-					<img src="../assets/images/icons/icon-close2.png" alt="CLOSE">
-				</button>
+<!-- Title page -->
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
+		<h2 class="ltext-105 cl0 txt-center">
+			Conocenos un poco más...
+		</h2>
+	</section>	
 
-				<form class="wrap-search-header flex-w p-l-15">
-					<button class="flex-c-m trans-04">
-						<i class="zmdi zmdi-search"></i>
-					</button>
-					<input class="plh3" type="text" name="search" placeholder="Search...">
-				</form>
+
+	<!-- Content page -->
+	<section class="bg0 p-t-75 p-b-120">
+		<div class="container">
+			<div class="row p-b-148">
+				<div class="col-md-7 col-lg-8">
+					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+						<h3 class="mtext-111 cl2 p-b-16">
+							Nos propusimos a relizar este proyecto con fines academicos, un proyecto amplio pero que por el camino se va tornando divertido.
+
+						</h3>
+						<p class="stext-113 cl6 p-b-26">
+							La electronica es nuestro campo de estudio principalmente, y para ahondar en conocimientos y sistematizar procesos la programacion orientada a objetos se hace  muy util.
+						</p>
+					</div>
+				</div>
+
+				<div class="col-11 col-md-5 col-lg-4 m-lr-auto">
+					<div class="how-bor1 ">
+						<div class="hov-img0">
+							<img src="assets/img_articulos/nosotros.jpg" alt="IMG">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="order-md-2 col-md-7 col-lg-8 p-b-30">
+					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
+						<h3 class="mtext-111 cl2 p-b-16">
+							La meta era adquirir conocimientos acerca de la programación web, pero mas que eso hoy se percibe mucho mejor su gran alcance en el ambito empresarial.
+						</h3>
+
+						<p class="stext-113 cl6 p-b-26">
+							
+						</p>
+
+						<div class="bor16 p-l-29 p-b-9 m-t-22">
+							<p class="stext-114 cl6 p-r-40 p-b-11">
+						
+							</p>
+
+							<span class="stext-111 cl8">
+								
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30">
+					<div class="how-bor2">
+						<div class="hov-img0">
+							<img src="assets/img_articulos/nosotros1.jpg" alt="IMG">
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-
-
-	</header>
-<br><br><br><br><hr>
-<div class="container" id="main">
-        <div class="main-form">
-            <div class="row">
-                <div class="col-md-12">
-                    <fieldset>
-                        <legend>Completar Datos</legend>
-                            <form action="registro.php" method="post">
-                                <div class="form-group">
-                                    <label>Nombre</label>
-                                    <input type="text" class="form-control" name="nombre" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Apellidos</label>
-                                    <input type="text" class="form-control" name="apellidos" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Correo</label>
-                                    <input type="email" class="form-control" name="correo" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Teléfono</label>
-                                    <input type="text" class="form-control" name="telefono" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Comentario</label>
-                                    <textarea name="comentario" class="form-control"  rows="4"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-block">Enviar</button>
-                            </form>
-                    </fieldset>
-                </div>
-            </div>
-        </div>
-    </div> <!-- /container -->
-    <br><br>
-	<!-- Footer -->
+	</section>	
+    	<!-- Footer -->
 	<footer class="bg3 p-t-15 p-b-10">
 		<div class="container">
 			<div class="row">
@@ -237,7 +250,7 @@ require 'helpers.php';
 		</div>
 	</footer>
 
-	<!-- Back to top -->
+    <!-- Back to top -->
 	<div class="btn-back-to-top" id="myBtn">
 		<span class="symbol-btn-back-to-top">
 			<i class="zmdi zmdi-chevron-up"></i>

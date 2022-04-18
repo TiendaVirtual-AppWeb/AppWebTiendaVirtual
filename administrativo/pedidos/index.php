@@ -59,7 +59,7 @@ header ('Location: index.php');
                 <div class="right-top-bar flex-w h-full">
 
                     <a href="" class="flex-c-m trans-04 p-lr-25">
-                        Detalles de pedidos
+                        Pedidos
                     </a>
                     </div>
                     <div class="right-top-bar flex-w h-full">

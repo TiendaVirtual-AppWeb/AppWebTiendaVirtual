@@ -77,7 +77,7 @@ require 'helpers.php';
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li>
-								<a href="nosotros.html">Nosotros</a>
+								<a href="nosotros.php">Nosotros</a>
 							</li>
 						</ul>
 					</div>
@@ -144,11 +144,11 @@ require 'helpers.php';
 
 			<ul class="main-menu-m">
 				<li>
-					<a href="nosotros.html">Nosotros</a>
+					<a href="nosotros.php">Nosotros</a>
 				</li>
 			</ul>
 		</div>
-
+	</header>
 	<!-- llamado clase articulo para realizar despliegue -->
 	<!-- Articulos nuevos -->
 	<br><br><hr><br><br><br><br>
