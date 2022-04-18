@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset ($_SESSION['usuario_info']) OR empty($_SESSION['usuario_info']))
+header ('Location: index.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,9 +109,9 @@
 						</div>
 
                         <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
-							<i><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <span class="caret"></span></a>
+							<i><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php print $_SESSION['usuario_info']['nombre_usuario']?><span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                        <li><a href="#">Salir</a></li>
+                        <li><a href="../cerrarsesion.php">Salir</a></li>
                         </ul></i>
 						</div>
                         
