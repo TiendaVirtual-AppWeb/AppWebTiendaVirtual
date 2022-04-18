@@ -9,9 +9,17 @@ $usuario = new Kawschool\Usuario;
 $resultado = $usuario->login($nombre_usuario, $clave);
   
 if ($resultado) {
+  session_start( );
+  
+  $_SESSION['usuario_info'] = array(
+  'nombre_usuario'=>$resultado['nombre_usuario'],
+  'estado'=>1
+  );
+  
+  
   header ('Location: dashboard.php');
   }else{
-exit (json_encode(array('estado'=>FALSE,'mensaje'=>'Error al iniciar session')));
+    exit (json_encode(array('estado'=>FALSE,'mensaje'=>'Error al iniciar session')));
   }
   
 }
